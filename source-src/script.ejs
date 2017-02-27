@@ -1,0 +1,76 @@
+<script>
+<% var left = '<%=' %>
+<% var right = '%' %>
+<% var right2 = '>' %>
+
+<% for (var asset in compilation.assets) { %><% if (asset.indexOf('mobile') >= 0) { %><%= compilation.assets[asset].source() %><% } %><% } %>
+</script>
+<% for (var chunk in htmlWebpackPlugin.files.chunks) { %><% if (chunk === 'main') { %><script src="<%= left %>config.root<%= right %><%= right2 %><%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script><% } %><% } %>
+<script>
+(function() {
+	showArticle();
+
+	//使用原生方法来获取element的CSS
+	(function(WDS, undefined){
+	   function _camelize(property) {
+			return property.replace(/-(\w)/g, function (strMatch, p1){
+		        return p1.toUpperCase();
+		    });
+		}
+
+		function getStyle(element, property) {
+
+			if(property =='background') property = "background-color";
+
+			if(!element || !property) return false;
+
+			//首先获取内联样式
+			
+			var value = element.style[_camelize(property)];
+
+			if(!value) {
+				if(document.defaultView && document.defaultView.getComputedStyle){
+		            css = document.defaultView.getComputedStyle(element, null);
+		            return value = css ? css.getPropertyValue(property) : null;
+		        }
+			}
+		}
+
+		window.WDS.getStyle = getStyle;
+
+	})(window.WDS || (window.WDS = {}));
+
+	console.log(WDS.getStyle(document.getElementsByClassName('profilepic')[0], "background"));
+
+	
+	window.onfocus = function (e) {
+		document.title = '时间追逐者';
+	}
+	window.onscroll = function(e){
+		console.log("onscroll...");
+		showArticle();
+	}
+	function showArticle(){
+	
+		var articleDoms = document.getElementsByClassName('article').length > 0 ? document.getElementsByClassName('article') : document.getElementsByClassName('archive-article');
+
+		for(var i = 0; i < articleDoms.length; i++) {
+			if(articleDoms[i].offsetTop <= document.body.scrollTop + window.screen.height && articleDoms[i].className.indexOf('show') < 0) {
+				articleDoms[i].className = articleDoms[i].className + " show";
+			} else {
+				// articleDoms[i].className = 
+			}
+		}
+
+	}
+
+	
+	var loadScript = function(path) {
+	    var $script = document.createElement('script')
+	    document.getElementsByTagName('body')[0].appendChild($script)
+	    $script.setAttribute('src', path)
+	}
+	<% for (var asset in compilation.assets) { %><% if (asset.indexOf('slider') >= 0) { %><% var slider = asset %><% } %><% } %>loadScript("<%= left %>config.root<%= right %><%= right2 %><%= slider %>")
+})();
+</script>
+

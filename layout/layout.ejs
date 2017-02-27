@@ -1,0 +1,42 @@
+<%- partial('_partial/head') %>
+<body>
+  <div id="container" q-class="show:isCtnShow">
+    <canvas id="anm-canvas" class="anm-canvas"></canvas>
+    <div class="left-col" q-class="show:isShow">
+      <%- partial('_partial/left-col', null, {cache: !config.relative_link}) %>
+    </div>
+    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
+      <%- partial('_partial/mobile-nav', null, {cache: !config.relative_link}) %>
+      <div id="wrapper" class="body-wrap">
+        <div class="menu-l">
+          <div class="canvas-wrap">
+            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+          </div>
+          <div id="js-content" class="content-ll">
+            <%- body %>
+          </div>
+        </div>
+      </div>
+      <%- partial('_partial/footer') %>
+
+      <%- partial('_partial/post/duoshuo', {
+        key: page.slug,
+        title: page.title,
+        url: config.url+url_for(page.path)
+      }) %>
+
+      <!-- <div class="switch demo1">
+        <input type="checkbox" id="particle">
+        <label></label>
+      </div>
+      
+      <div id="particles-js" style="bottom: 100%;">
+          <canvas class="particles-js-canvas-el" width="1000" height="1000" style="width: 100%; height: 100%;"></canvas>
+      </div> -->
+    </div>
+    <%- partial('_partial/after-footer') %>
+    <%- partial('_partial/tools') %>
+    <%- partial('_partial/viewer') %>
+  </div>
+</body>
+</html>

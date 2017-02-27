@@ -1,0 +1,86 @@
+<!-- <script src="../blog/js/particles.min.js"></script>
+
+<script src="../blog/js/app.js"></script>
+stats.js
+<script src="../blog/js/lib/stats.js"></script> -->
+
+<script>
+	var yiliaConfig = {
+		mathjax: <%=theme.mathjax%>,
+		isHome: <%=is_home()%>,
+		isPost: <%=is_post()%>,
+		isArchive: <%=is_archive()%>,
+		isTag: <%=is_tag()%>,
+		isCategory: <%=is_category()%>,
+		open_in_new: <%=theme.open_in_new%>,
+		root: "<%=config.root%>",
+		innerArchive: <%=theme.smart_menu.innerArchive ? true : false%>,
+		showTags: <%=(theme.slider && theme.slider.showTags) ? true : false%>
+	}
+</script>
+
+<%- partial('script') %>
+
+<% if (theme.mathjax){ %>
+<%- partial('mathjax') %>
+<% } %>
+
+<script>
+/*if ("serviceWorker" in navigator) {
+	if(location.href && location.href.indexOf('tags') > 0) {
+		console.log('tags');
+		navigator.serviceWorker.register('../../serviceWorker.js', { scope: "./" }) //setting scope of sw
+		.then(function(registration) {
+		  console.info('Service worker is registered!');
+		})
+		.catch(function(error) {
+		  console.error('Service worker failed ', error);
+		});
+	} else {
+		navigator.serviceWorker.register('./serviceWorker.js', { scope: "./" }) //setting scope of sw
+		.then(function(registration) {
+		  console.info('Service worker is registered!');
+		})
+		.catch(function(error) {
+		  console.error('Service worker failed ', error);
+		});
+	}
+	
+}*/
+
+
+var URL = 'https://jasongan.cn/api/weather';
+
+fetch(URL).then(function(response2) {
+    return response2.json();
+}).then(function(json) {
+	var rainy = json.weatherinfo.weather.indexOf("雨") > 0 ? "有雨" : "无雨";
+	document.getElementsByClassName('weatherInfo')[0].innerHTML = json.weatherinfo.city + "最高温度" + json.weatherinfo.temp2 + ", 最低温度" + json.weatherinfo.temp1 + ", " + rainy;
+});
+
+
+
+
+/*document.getElementById('particle').addEventListener('click', myFunction);
+
+function myFunction(event) {
+	if(event.currentTarget.checked) {
+		document.getElementById('particles-js').style.top = 0;
+	} else {
+		document.getElementById('particles-js').style.top = '100%';
+	}
+	
+}*/
+
+
+
+ 
+
+/*var URL2 = 'https://jasongan.cn/api/spurs';
+fetch(URL2).then(function(response2) {
+    return response2.json();
+}).then(function(json) {
+	alert(JSON.stringify(json[0]));
+});*/
+
+</script>

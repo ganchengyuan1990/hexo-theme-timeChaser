@@ -23,6 +23,11 @@ subnav:
   #twitter: "#"
   #linkedin: "#"
 
+#zhuabao
+zhuabao:
+   spurs: "www.baidu.com"
+   yunshi: "www.sina.com"
+
 rss: /atom.xml
 
 # 是否需要修改 root 路径

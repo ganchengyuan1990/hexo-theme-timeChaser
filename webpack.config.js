@@ -20,8 +20,8 @@ module.exports = {
     mobile: "./source-src/js/mobile.js"
   },
   output: {
-    //path: "../timer_chaser/source",
-    path: "./source",
+    path: "../timer_chaser/source",
+    //path: "./source",
     publicPath: "./",
     filename: "[name].[chunkhash:6].js"
   },

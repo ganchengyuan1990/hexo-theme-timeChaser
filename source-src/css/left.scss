@@ -1,3 +1,21 @@
+@-webkit-keyframes pulse {
+  to {
+    opacity: 0;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  to {
+    opacity: 0;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+
+
 .left-col {
 	background: #fff;
 	width: 300px;
@@ -34,6 +52,40 @@
 		height: 300px;
 		position: relative;
 		border-bottom: 1px solid color-border;
+		.profilepic {
+		    display: block;
+		    border: 5px solid #fff;
+		    border-radius: 300px;
+		    width: 128px;
+		    height: 128px;
+		    margin: 0 auto;
+		    position: relative;
+		    overflow: hidden;
+		    background: #88acdb;
+		    -webkit-transition: all .2s ease-in;
+		    display: -webkit-box;
+		    -webkit-box-orient: horizontal;
+		    -webkit-box-pack: center;
+		    -webkit-box-align: center;
+		    text-align: center
+		}
+		.profilepic::before, .profilepic::after {
+		    -webkit-animation: pulse 2s linear infinite;
+		    animation: pulse 2s linear infinite;
+		    border: #fff solid 8px;
+		    border-radius: 50%;
+		    box-sizing: border-box;
+		    content: ' ';
+		    height: 140%;
+		    left: -20%;
+		    opacity: .6;
+		    position: absolute;
+		    top: -20%;
+		    -webkit-transform: scale(0.714);
+		    transform: scale(0.714);
+		    width: 140%;
+		    z-index: 10000;
+		}
 		a {
 			color: #696969;
 			&:hover {
@@ -85,6 +137,10 @@
 					}
 				}
 			}
+		}
+		.zhuabao {
+			margin-top: 80px;
+			color: red;
 		}
 		.profilepic{
 			text-align: center;

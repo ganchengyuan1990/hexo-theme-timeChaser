@@ -38,5 +38,11 @@
 		        <%}%>
 			</div>
 		</nav>
+		<nav class="zhuabao header-nav">
+				<% for (var i in theme.zhuabao){ %>
+					<% if(theme.smart_menu[i]){ %>
+    				<a q-on="click: openSlider(e, '<%-i%>')" href="javascript:void(0)"><%= theme.smart_menu[i] %></a>
+    			<% } %>
+		</nav>
 	</header>		
 </div>

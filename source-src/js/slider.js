@@ -15,6 +15,14 @@ let localTagKey = 'yilia-tag'
 let localSearchKey = 'yilia-search'
 const isMobile = (Browser.versions.mobile && window.screen.width < 800)
 
+
+/*Array.prototype.containsItem = function (needle) {
+  for (i in this) {
+    if (this[i] == needle) return true;
+  }
+  return false;
+}*/
+
 function fixzero(str) {
 	str = str + ''
 	return str.length === 1 ? '0' + str : str
@@ -137,9 +145,20 @@ function init() {
 	}).then((res) => {
 		return res.json()
 	}).then((data) => {
-		data.forEach((em) => {
+		debugger
+		/*data.forEach((em) => {
 			em.isShow = true
-		})
+		})*/
+
+		for(var i = 0 ; i < data.length; i++) {
+			if(data[i].title.indexOf('置顶') >= 0) {
+				var temp = data[0];
+				data[0] = data[i];
+				data[i] = temp;
+			}
+			data[i].isShow = true;
+		}
+
 		app.$set('items', data)
 		// 搜索
 		let searchWording = (window.localStorage && window.localStorage.getItem(localSearchKey)) || ''

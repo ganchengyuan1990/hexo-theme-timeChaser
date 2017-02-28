@@ -29,7 +29,8 @@ function init() {
 
     // Event handling
     function addListeners() {
-        window.addEventListener('scroll', scrollCheck);
+        //window.addEventListener('scroll', scrollCheck);
+        window.onscroll = scrollCheck;
         window.addEventListener('resize', resize);
     }
 

@@ -27,7 +27,13 @@
             &:hover {
                 opacity:1
             }
+            span {
+                color: red;
+            }
         }
+        a.special {
+            margin-right: 20px;
+        } 
         a.weibo {
             background: #aaaaff;
             border:1px solid #aaaaff;

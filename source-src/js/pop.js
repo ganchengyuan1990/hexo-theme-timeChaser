@@ -1,9 +1,14 @@
 var popAlert = {
 	popAlertFun: function(content) {
 
-		//
+
+
 		var popDom = document.createElement('div');
 		popDom.classList.add('popbg');
+		popDom.innerHTML = content;
+
+
+
 
 		if(Array.isArray(content)) {
 			content.forEach((ele, i) => {
@@ -13,12 +18,10 @@ var popAlert = {
 			})
 		}
 
-		
-
-
 
 		//输出到页面
-		document.body.appendChild(popDom);
+		document.querySelector('.loadingMask').appendChild(popDom);
+		document.querySelector('.loadingMask').classList.remove("hide_it");
 	}
 }
 

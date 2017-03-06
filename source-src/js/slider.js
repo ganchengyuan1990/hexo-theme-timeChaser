@@ -145,19 +145,18 @@ function init() {
 	}).then((res) => {
 		return res.json()
 	}).then((data) => {
-		debugger
-		/*data.forEach((em) => {
+		data.forEach((em) => {
 			em.isShow = true
-		})*/
+		})
 
-		for(var i = 0 ; i < data.length; i++) {
+		/*for(var i = 0 ; i < data.length; i++) {
 			if(data[i].title.indexOf('置顶') >= 0) {
 				var temp = data[0];
 				data[0] = data[i];
 				data[i] = temp;
 			}
 			data[i].isShow = true;
-		}
+		}*/
 
 		app.$set('items', data)
 		// 搜索

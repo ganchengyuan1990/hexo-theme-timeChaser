@@ -20,6 +20,29 @@ function init() {
 
 	let $zhuabao = document.querySelectorAll('.special');
 
+	let $dianzan = document.querySelectorAll('.dianzan span')[0];
+
+	let $loadingMask = document.querySelector('.loadingMask');
+
+	$loadingMask.onclick = (e) => {
+		e.currentTarget.classList.add("hide_it");
+	}
+
+	$dianzan.onclick = (e) => {
+		debugger
+
+		if(e.currentTarget.innerHTML == "点赞") {
+			fetch("https://jasongan.cn/api/dianzan?plus=1").then((res) => {
+	            return res.json();
+	        }).then((response) => {
+	            document.querySelectorAll('.dianzan span')[0].innerHTML = response.number;
+	        })
+		} else {
+			popAlert.popAlertFun("已收到您的点赞，谢谢！");
+		}
+		 
+	}
+
 	$zhuabao.forEach(($em, i) => {
 		$em.onclick = () => {
 			var url = 'https://jasongan.cn/api/spurs';
@@ -35,7 +58,7 @@ function init() {
 		}
 	});
 
-	$gototop.onclick = () => {
+	/*$gototop.onclick = () => {
 		goToTop(50,10);
 	}
 
@@ -50,7 +73,7 @@ function init() {
 			}
 		}, stepTime);
 		setTimeout(function(){clearInterval(timer1);}, (stepTime+1)*cnt);
-	}
+	}*/
 
 	$imgArr.forEach(($em, i) => {
 		$em.onclick = () => {

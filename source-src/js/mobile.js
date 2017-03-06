@@ -21,7 +21,7 @@ function tabActive() {
 	for (var i = 0, len = $tabs.length; i < len; i++) {
 		let $tab = $tabs[i]
 		if (isPathMatch(path, $tab.getAttribute('href'))) {
-			addClass($tab, 'active')
+			addClass($tab, 'active');
 		}
 	}
 }

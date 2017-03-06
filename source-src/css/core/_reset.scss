@@ -416,3 +416,7 @@ i {
 .clearfix {
     @extend %clearfix;
 }
+
+.hide_it {
+    display: none;
+}

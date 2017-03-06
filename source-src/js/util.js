@@ -78,6 +78,8 @@ var e = function() {
                 window.onload = func;
             } else {
                 window.onload = function() {
+                    document.querySelector('.loading').classList.add('hide_it');
+                    document.querySelector('.loadingMask').classList.add('hide_it');
                     oldonload();
                     func();
                 }

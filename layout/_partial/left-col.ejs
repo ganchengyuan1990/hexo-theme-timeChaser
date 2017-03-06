@@ -12,6 +12,7 @@
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/blog"><%=theme.author%></a></h1>
+		  <div class="dianzan"><span>µãÔÞ</span></div>
 		</hgroup>
 		<% if (theme.subtitle){ %>
 		<p class="header-subtitle"><%=theme.subtitle%></p>
@@ -38,11 +39,28 @@
 		        <%}%>
 			</div>
 		</nav>
-		<nav class="zhuabao header-nav">
+		<!-- <nav class="zhuabao header-nav">
+			<div class="social">
 				<% for (var i in theme.zhuabao){ %>
-					<% if(theme.smart_menu[i]){ %>
-    				<a q-on="click: openSlider(e, '<%-i%>')" href="javascript:void(0)"><%= theme.smart_menu[i] %></a>
-    			<% } %>
-		</nav>
+					<a class="special" target="_blank" href="https://www.baidu.com" title="<%= i %>"><span><%= i %></span></a>
+		        <%}%>
+		    </div>
+		</nav> -->
+		<div class="clock">
+		  <div class="numbers">
+		    <ul>
+		      <li>12</li>
+		      <li>3</li>
+		      <li>6</li>
+		      <li>9</li>
+		    </ul>
+		  </div>
+		  <div class="clockwise">
+		    <div class="center"></div>
+		    <div class="hand-second" id="analogsecond" style="transform: rotate(258deg);"></div>
+		    <div class="hand-minute" id="analogminute" style="transform: rotate(280deg);"></div>
+		    <div class="hand-hour" id="analoghour" style="transform: rotate(473deg);"></div>
+		  </div>
+		</div>
 	</header>		
 </div>

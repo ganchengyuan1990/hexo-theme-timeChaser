@@ -1,6 +1,18 @@
 hexo-theme-timerChaser
 ================
 
+
+
+2017年3月第一周更新
+
+1.引入service worker 加强缓存管理
+2.加入首屏时钟
+3.全站点赞功能
+
+
+
+—————————————————————
+
 timerChaser 是为 [hexo](https://github.com/tommy351/hexo) 2.4+制作的主题，改变子Yilla<https://github.com/litten/hexo-theme-yilia>。你可以点击 [我的博客](https://ganchengyuan1990.github.io/blog/) 查看效果。           
  
 
